@@ -1,0 +1,10 @@
+#menu-items ul  {
+    background-color: azure;
+}
+
+.section {
+    border: 1px solid #000000;
+    background-color:#adadad;
+    margin: 10px;
+    padding: 10px;
+}
