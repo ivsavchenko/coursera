@@ -35,10 +35,6 @@
                           { name: "Beers", quantity: 60 }];
         var itemsBought = [];
         
-        var checkIsAny = function(a) {
-        }
-        
-        
         self.getToBuyList = function() {
             return itemsToBuy; 
         }
