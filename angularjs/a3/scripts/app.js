@@ -13,12 +13,11 @@
         var self = this;
         self.items = [];
         
-        self.search = function(searchTerm) {
-            
-            service.getMatchedMenuItemsPromise(searchTerm).then(function(result){
+        self.search = function() {            
+            service.getMatchedMenuItemsPromise(self.searchTerm).then(function(result){
                 self.items = result;    
             });            
-        }    
+        }        
     }
         
     function MenuSearchService ($http) {                
@@ -28,7 +27,11 @@
          return $http.get("https://davids-restaurant.herokuapp.com/menu_items.json").then(function(response) {
              console.log(searchTerm);   
              return response.data;
-            });                        
+            });  
+            
+          /*  var nameFilter = function(obj){
+                return obj.name.indexOf()
+            }*/            
         }        
     }            
     
