@@ -1,0 +1,7 @@
+<div class="loader">
+    
+<div ng-repeat="item in ctrl.items">
+    {{item.name}}
+    <button ng-click="dirCtrl.dirRemove({index : $index});">Don't want this one!</button>
+</div>
+</div>
