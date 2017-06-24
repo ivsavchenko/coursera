@@ -31,7 +31,7 @@
         var self = this;     
         var filter;
         var filterByName = function(obj){             
-            if(obj.name.indexOf(filter) !== -1)
+            if(obj.description.toLowerCase().indexOf(filter) !== -1)
                 return obj;        
         }
         

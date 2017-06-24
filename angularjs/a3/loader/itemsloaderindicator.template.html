@@ -2,6 +2,7 @@
 <div class="row" ng-repeat="item in fidc.items">
       <div class="col-md-3">{{item.short_name}}</div>
       <div class="col-md-3">{{item.name}}</div>  
+      <div class="col-md-3">{{item.description}}</div>
       <div class="col-md-3"><button ng-click="fidc.remove({index: $index});">Don't want this one!</button></div>  
 </div>            
 <div class="row" ng-if="fidc.nothingFound()">Nothing found</div>
