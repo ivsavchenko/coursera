@@ -1,4 +1,4 @@
 (function (){
     'use strict'    
-    var module = angular.module('MenuApp', ['Data']);
+    var module = angular.module('MenuApp', ['Data']);    
 })()
