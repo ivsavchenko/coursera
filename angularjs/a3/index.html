@@ -16,11 +16,12 @@
       <input type="text" placeholder="search term" class="form-control" ng-model="ctrl.searchTerm">
     </div>
     <div class="form-group narrow-button">
-      <button class="btn btn-primary" ng-click="ctrl.search('lololo')">Narrow It Down For Me!</button>
+      <button class="btn btn-primary" ng-click="ctrl.search(ctrl.searchTerm)">Narrow It Down For Me!</button>
     </div>
-    <div ng-repeat="item in ctrl.items">
-        <div>{{item}}</div>
-    </div>
+    <br><br><br>
+    <ul ng-repeat="item in ctrl.items">
+        <li>{{item.name}}</li>
+    </ul>
 
     
     <found-items found-items="ctrl.items" on-remove="ctrl.remove(index)"></found-items>

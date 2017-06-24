@@ -11,27 +11,26 @@
     
     function NarrowItDownController (service) {
         var self = this;
-        self.items = [];
-        
-        self.search = function() {            
-            service.getMatchedMenuItemsPromise(self.searchTerm).then(function(result){
+
+        self.search = function(searchTerm) {            
+            service.getMatchedMenuItemsPromise(searchTerm).then(function(result){
                 self.items = result;    
             });            
         }        
     }
         
     function MenuSearchService ($http) {                
-        var self = this;
+        var self = this;                
         
         self.getMatchedMenuItemsPromise = function(searchTerm) {
-         return $http.get("https://davids-restaurant.herokuapp.com/menu_items.json").then(function(response) {
-             console.log(searchTerm);   
-             return response.data;
-            });  
-            
-          /*  var nameFilter = function(obj){
-                return obj.name.indexOf()
-            }*/            
+            var nameFilter = function(obj){                
+                if(obj.name.indexOf(searchTerm) !== -1)                                     
+                    return obj;                
+                }          
+
+         return $http.get("https://davids-restaurant.herokuapp.com/menu_items.json").then(function(response) {            
+             return response.data.menu_items.filter(nameFilter);
+            });                          
         }        
     }            
     
