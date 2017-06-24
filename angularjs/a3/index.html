@@ -10,21 +10,14 @@
   </head>
 <body ng-app="NarrowItDownApp">
    <div class="container" ng-controller="NarrowItDownController as ctrl">
-    <h1>Narrow Down Your Chinese Menu Choice</h1>
+    <h1 class="row">Narrow Down Your Chinese Menu Choice</h1>
 
-    <div class="form-group">
-      <input type="text" placeholder="search term" class="form-control" ng-model="ctrl.searchTerm">
+    <div class="row form-group">    
+      <input type="text" placeholder="search term" class="form-control" ng-model="ctrl.searchTerm">        
+      <button class="btn btn-primary narrow-button" ng-click="ctrl.search(ctrl.searchTerm)">Narrow It Down For Me!</button>
     </div>
-    <div class="form-group narrow-button">
-      <button class="btn btn-primary" ng-click="ctrl.search(ctrl.searchTerm)">Narrow It Down For Me!</button>
-    </div>
-    <br><br><br>
-    <ul ng-repeat="item in ctrl.items">
-        <li>{{item.name}}</li>
-    </ul>
-
-    
-    <found-items found-items="ctrl.items" on-remove="ctrl.remove(index)"></found-items>
+                  
+    <found-items found-items="ctrl.found" on-remove="ctrl.remove(index)"></found-items>
   </div>
 
 </body>
