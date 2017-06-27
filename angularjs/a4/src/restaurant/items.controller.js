@@ -7,10 +7,6 @@
     
     function ItemsController(service, $stateParams, items){        
         var self = this;            
-        self.items = items;
-        //var item = items[$stateParams.categoryShortName];
-        //self.name = "123";//item.name;
-        //self.quantity = item.quantity;
-        //self.description = item.description;        
+        self.items = items;     
     }
 })();
