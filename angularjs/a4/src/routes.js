@@ -28,6 +28,7 @@ function RoutesConfig($stateProvider, $urlRouterProvider) {
   })
 
   .state('categories.items', {    
+    url: '/items/{categoryShortName}',
     templateUrl: 'src/restaurant/templates/items.template.html',
     controller: 'ItemsController as itemsListCtrl',
     params: {
