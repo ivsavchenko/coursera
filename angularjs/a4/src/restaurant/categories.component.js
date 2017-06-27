@@ -4,7 +4,7 @@
     module.component('categoriesList', {
         templateUrl: 'src/restaurant/templates/categories-component.template.html',
         bindings: {
-            items: '<'
+            categories: '<'
         }
     });        
 })();

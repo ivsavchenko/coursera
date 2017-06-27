@@ -20,8 +20,8 @@
                     method: "GET",
                     params: {category: categoryShortName}
                 }).then(function(response) {
-                 return response.data;
+                 return response.data.menu_items;
             });
         }        
     }        
-})()
+})();

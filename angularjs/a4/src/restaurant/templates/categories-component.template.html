@@ -1,3 +1,4 @@
-<div ng-repeat="item in $ctrl.items" ui-sref="itemsListCtrl.getItemsForCategory({categoryShortName: $index})">
-    {{item.name}}
+<div ng-repeat="item in $ctrl.categories">        
+    <a ui-sref="categories.items({categoryShortName: item.short_name})">{{item.name}}</a>    
 </div>
+<ui-view></ui-view>

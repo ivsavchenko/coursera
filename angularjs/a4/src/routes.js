@@ -15,7 +15,7 @@ function RoutesConfig($stateProvider, $urlRouterProvider) {
     url: '/',
     templateUrl: 'src/restaurant/templates/home.template.html'
   })
-
+  
   .state('categories', {
     url: '/categories',
     templateUrl: 'src/restaurant/templates/categories.template.html',
@@ -27,20 +27,17 @@ function RoutesConfig($stateProvider, $urlRouterProvider) {
     }
   })
 
-  .state('categories.items', {
-    // url: '/item-detail/{itemId}',
-    templateUrl: 'src/restaraunt/templates/items.template.html',
+  .state('categories.items', {    
+    templateUrl: 'src/restaurant/templates/items.template.html',
     controller: 'ItemsController as itemsListCtrl',
     params: {
       categoryShortName: null
     },      
     resolve: {
-      items: ['MenuDataService', function (MenuDataService) {
-        return MenuDataService.getItemsForCategory(categoryShortName);
+      items: ['MenuDataService', '$stateParams', function (MenuDataService, $stateParams) {
+        return MenuDataService.getItemsForCategory($stateParams.categoryShortName);
       }]
     }
   });
-
 }
-
 })();
