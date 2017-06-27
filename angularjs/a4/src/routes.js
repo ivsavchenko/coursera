@@ -27,14 +27,19 @@ function RoutesConfig($stateProvider, $urlRouterProvider) {
     }
   })
 
- /* .state('categories.items', {
+  .state('categories.items', {
     // url: '/item-detail/{itemId}',
     templateUrl: 'src/restaraunt/templates/items.template.html',
-    controller: 'ItemDetailController as itemsList',
+    controller: 'ItemsController as itemsListCtrl',
     params: {
-      itemId: null
+      categoryShortName: null
+    },      
+    resolve: {
+      items: ['MenuDataService', function (MenuDataService) {
+        return MenuDataService.getItemsForCategory(categoryShortName);
+      }]
     }
-  })*/;
+  });
 
 }
 

@@ -7,6 +7,6 @@
     
     function MenuAppController(service, categories){
         var self = this;
-        self.categories = categories;              
+        self.categories = categories;     
     }    
 })();
