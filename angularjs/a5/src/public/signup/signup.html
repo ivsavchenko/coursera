@@ -53,10 +53,14 @@
           ng-model="signupCtrl.user.menu_number">          
           <br>          
 
+          <!--ng-disabled="regForm.$invalid"-->
         <button class="form-control"
-          ng-disabled="regForm.$invalid"
-          ng-click="signupCtrl.submit()">Submit</button>
+          
+          ng-click="signupCtrl.submit(signupCtrl.user.menu_number)">Submit</button>
 
+          <div style="margin-top: 10px;">
+            <span ng-if="signupCtrl.numberFound">No such menu number exists</span>              
+          </div>
       </form>
     </fieldset>
 </div>

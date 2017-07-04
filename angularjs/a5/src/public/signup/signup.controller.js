@@ -4,8 +4,15 @@
 angular.module('public')
 .controller('SignupController', SignupController);
 
-function SignupController() {
-  var $ctrl = this;  
+SignupController.$inject = ['MenuItemsService'];
+    
+function SignupController(MenuItemsService) {
+    var $ctrl = this;  
+    $ctrl.user = {};
+    
+    $ctrl.submit = function(){
+        MenuItemsService.getAllCategories();        
+    }        
 }
 
 })();
