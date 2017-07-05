@@ -21,15 +21,6 @@ function routeConfig ($stateProvider) {
     })
     .state('public.menu', {
       url: '/'
-      /*url: '/menu',
-      templateUrl: 'src/public/menu/menu.html',
-      controller: 'MenuController',
-      controllerAs: 'menuCtrl',
-      resolve: {
-        menuCategories: ['MenuService', function (MenuService) {
-          return MenuService.getCategories();
-        }]
-      }*/
     })
     .state('public.menuitems', {
       url: '/menu/{category}',

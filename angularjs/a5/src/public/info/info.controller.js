@@ -4,8 +4,11 @@
 angular.module('public')
 .controller('InfoController', InfoController);
 
-function InfoController() {
-  var $ctrl = this;  
+InfoController.$inject = ['MenuItemsService'];    
+    
+function InfoController(MenuItemsService) {
+    var ctrl = this;  
+    ctrl.registrationInfo = MenuItemsService.getCached();        
 }
 
 })();
