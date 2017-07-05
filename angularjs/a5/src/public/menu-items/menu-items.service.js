@@ -1,25 +1,32 @@
 (function () {
-"use strict";
+    "use strict";
 
-angular.module('public')
-.service('MenuItemsService', MenuItemsService);
+    angular.module('public')
+        .service('MenuItemsService', MenuItemsService);
 
-MenuItemsService.$inject = ['$http'];    
-    
-function MenuItemsService($http) {
-        var self = this;     
-        var filter;
-        var filterByName = function(obj){             
-            if(obj.description.toLowerCase().indexOf(filter) !== -1)
-                return obj;        
+    MenuItemsService.$inject = ['$http'];
+
+    function MenuItemsService($http) {
+        var self = this;
+        var filter;        
+        var cache = null;
+        
+        self.getMenuItem = function (shortName) {
+            return $http.get("https://warm-reef-62245.herokuapp.com/menu_items/"+ shortName +".json").then(function (success) {                
+                return {data: success.data, message: null};
+            }, function(error){
+                return {data: null, message: "No such ('" + shortName + "') menu number exists"};                
+            });
         }
         
-        self.getAllCategories = function(){
-            return $http.get("https://davids-restaurant.herokuapp.com/categories.json").then(function(response) {
-                 return response.data;
-            });
-        }     
-}
+        self.cacheData = function(data){
+            cache = data;
+            console.log(data);
+        }        
+        
+        self.getCached = function(){
+            return cache;
+        }
+    }
     
-
 })();
